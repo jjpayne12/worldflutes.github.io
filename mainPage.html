@@ -1,0 +1,706 @@
+<DOCTYPE html/>
+<html>
+<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<style>
+			.jumbotron {
+				display: flex;
+				align-items: center;
+				background-image: url('http://i67.tinypic.com/11hti7b.jpg');
+				background-size: cover;
+				height: 270px;
+			}
+			table tr td{
+				padding: 15px;
+				text-align: center;
+			}
+			footer{
+				padding-top: 50px;
+				padding-left: 100px;
+				padding-bottom: 25px;
+			}
+			.modalDialog {
+				position: fixed;
+				font-family: Arial, Helvetica, sans-serif;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0.8);
+				z-index: 99999;
+				opacity:0;
+				-webkit-transition: opacity 400ms ease-in;
+				-moz-transition: opacity 400ms ease-in;
+				transition: opacity 400ms ease-in;
+				pointer-events: none;
+			}
+			.modalDialog:target {
+				opacity:1;
+				pointer-events: auto;
+			}
+			.modalDialog > div {
+				width: 400px;
+				position: relative;
+				margin: 10% auto;
+				padding: 5px 20px 13px 20px;
+				border-radius: 10px;
+				background: #fff;
+				background: -moz-linear-gradient(#fff, #999);
+				background: -webkit-linear-gradient(#fff, #999);
+				background: -o-linear-gradient(#fff, #999);
+			}
+			.close {
+				background: #606061;
+				color: #FFFFFF;
+				line-height: 25px;
+				position: absolute;
+				right: -12px;
+				text-align: center;
+				top: -10px;
+				width: 24px;
+				text-decoration: none;
+				font-weight: bold;
+				-webkit-border-radius: 12px;
+				-moz-border-radius: 12px;
+				border-radius: 12px;
+				-moz-box-shadow: 1px 1px 3px #000;
+				-webkit-box-shadow: 1px 1px 3px #000;
+				box-shadow: 1px 1px 3px #000;
+			}
+			.close:hover {
+				background: #00d9ff;
+			}
+		</style>
+</head>
+<body>
+	<section class="container">
+		<h1>World Flutes</h1>
+	</section>
+
+	<section class="jumbotron">
+		<div class="container">
+		</div>
+	</section>
+	
+	<section class="container">
+		<h3>Flutes From China</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#xunModal">
+						<img src='https://s17.postimg.org/9mva9rhdn/Xun.jpg' border='0' alt='Xun'/>
+						<p>Xun (Ocarina)</p>
+					</a>
+				</td>
+				
+				<td>
+					<a href="#diziModal">
+						<img src='https://s17.postimg.org/sg8cyt2e3/Dizi.jpg' border='0' alt='Dizi'/>
+						<p>Dizi</p>
+					</a>
+				</td>
+				<td>
+					<a href="#xiaoModal">
+						<img src='https://s17.postimg.org/xsx7cvl4r/Xiao.jpg' border='0' alt='Xiao'/>
+						<p>Xiao</p>
+					</a>
+				</td>
+				<td>
+					<a href="#hulusiModal">
+						<img src='https://s17.postimg.org/dyb5qziuj/Hulusi.jpg' border='0' alt='Hulusi'/>
+						<p>Hulusi</p>
+					</a>
+				</td>
+				<td>
+					<a href="#paixiaoModal">
+						<img src='https://s17.postimg.org/pnf5f0uej/Pai-_Xiao.jpg' border='0' alt='Pai-_Xiao'/>
+						<p>Pai-Xiao (Panflute)</p>
+					</a>
+				</td>
+				<td>
+					<a href="#bawuModal">
+						<img src='https://s17.postimg.org/d8sder0cb/Bawu.jpg' border='0' alt='Bawu'/>
+						<p>Bawu</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section class="container">
+		<h3>Flutes From Japan</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#shakuhachiModal">
+						<img src='https://s17.postimg.org/h8ziqolkr/Shakuhachi.jpg' border='0' alt='Shakuhachi'/>
+						<p>Shakuhachi</p>
+					</a>
+				</td>
+				<td>
+					<a href="#shinobueModal">
+						<img src='https://s17.postimg.org/44tye1yor/Shinobue.jpg' border='0' alt='Shinobue'/>
+						<p>Shinobue</p>
+					</a>
+				</td>
+				<td>
+					<a href="#tsuchibueModal">
+						<img src='https://s17.postimg.org/fh6jw0ukr/Japanese_Ocarina.jpg' border='0' alt='Japanese_Ocarina'/>
+						<p>Tsuchibue</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section class="container">
+		<h3>Flutes From Southeast Asia</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#khloyModal">
+						<img src='https://s17.postimg.org/463w7fq7v/Khloy.jpg' border='0' alt='Khloy'/>
+						<p>Khloy (Cambodia)</p>
+					</a>
+				</td>
+				<td>
+					<a href="#khluiModal">
+						<img src='https://s17.postimg.org/fv7vvgu23/Khlui.jpg' border='0' alt='Khlui'/>
+						<p>Khlui (Thailand)</p>
+					</a>
+				</td>
+				<td>
+					<a href="#dansoModal">
+						<img src='https://s17.postimg.org/5l5gw9m6z/Danso.jpg' border='0' alt='Danso'/>
+						<p>Danso (Korea)</p>
+					</a>
+				</td>
+				<td>
+					<a href="#daegeumModal">
+						<img src='https://s17.postimg.org/jto54qo4b/Daegeum.jpg' border='0' alt='Daegeum'/>
+						<p>Daegeum</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section class="container">
+		<h3>Flutes From India</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#bansuriModal">
+						<img src='https://s17.postimg.org/p4a25ixsb/Indian_Bansuri.png' border='0' alt='Indian_Bansuri'/>
+						<p>Bansuri</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section class="container">
+		<h3>Flutes From Africa</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#tambinModal">
+						<img src='https://s17.postimg.org/amm1ov8cb/African_Tambin.jpg' border='0' alt='African_Tambin'/>
+						<p>Tabmin</p>
+					</a>
+				</td>
+				<td>
+					<a href="#africanPanfluteModal">
+						<img src='https://s17.postimg.org/qxm5l7fp7/African_Panflute.jpg' border='0' alt='African_Panflute'/>
+						<p>Panflute</p>
+					</a>
+				</td>
+				<td>
+					<a href="#africanOcarinaModal">
+						<img src='https://s17.postimg.org/9x39cjpt7/African_Ocarina.jpg' border='0' alt='African_Ocarina'/>
+						<p>Ocarina</p>
+					</a>
+				</td>
+				<td>
+					<a href="#africanWoodenFlutes">
+						<img src='https://s17.postimg.org/7siwbjo7f/African_Wooden_Flutes.jpg' border='0' alt='African_Wooden_Flutes'/>
+						<p>Wooden Flutes</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section class="container">
+		<h3>Flutes From South America</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#quenaModal">
+						<img src='https://s17.postimg.org/ydlf7h8or/Quena.jpg' border='0' alt='Quena'/>
+						<p>Quena</p>
+					</a>
+				</td>
+				<td>
+					<a href="#southAmericanOcarinaModal">
+						<img src='https://s17.postimg.org/d5cc386kr/South_American_Ocarina.jpg' border='0' alt='South_American_Ocarina'/>
+						<p>Ocarina</p>
+					</a>
+				</td>
+				<td>
+					<a href="#zamponiaModal">
+						<img src='https://s17.postimg.org/mpvyq4qrv/Siku_Zamponia.jpg' border='0' alt='Siku_Zamponia'/>
+						<p>Siku/Zamponia (Panflute)</p>
+					</a>
+				</td>
+				<td>
+					<a href="#toyoModal">
+						<img src='https://s17.postimg.org/pjz43lg3f/Toyo.jpg' border='0' alt='Toyo'/>
+						<p>Toyo (Bass Panflute)</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section class="container">
+		<h3>Flutes From North America</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#nativeAmericanFluteModal">
+						<img src='https://s17.postimg.org/lnls7ov4r/Native_American_Flute.jpg' border='0' alt='Native_American_Flute'/>
+						<p>Native American Flute</p>
+					</a>
+				</td>
+				<td>
+					<a href="#fifeModal">
+						<img src='https://s17.postimg.org/6evutxgvv/Fife.jpg' border='0' alt='Fife'/>
+						<p>Fife</p>
+					</a>
+				</td>
+				<td>
+					<a href="#nativeAmericanOcarinaModal">
+						<img src='https://s17.postimg.org/n2ncwnwaj/Native_American_Ocarina.jpg' border='0' alt='Native_American_Ocarina'/>
+						<p>Native American Ocarina</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section class="container">
+		<h3>Flutes From Europe</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#irishFluteModal">
+						<img src='https://s17.postimg.org/4octscjwb/Irish_Flute.png' border='0' alt='Irish_Flute'/>
+						<p>Irish Flute</p>
+					</a>
+				</td>
+				<td>
+					<a href="#europeanFifeModal">
+						<img src='https://s17.postimg.org/6evutxgvv/Fife.jpg' border='0' alt='Fife'/>
+						<p>Fife</p>
+					</a>
+				</td>
+				<td>
+					<a href="#pennywhistleModal">
+						<img src='https://s17.postimg.org/ujwkbkgl7/Pennywhistle.jpg' border='0' alt='Pennywhistle'/>
+						<p>Pennywhistle</p>
+					</a>
+				</td>
+				<td>
+					<a href="#naiModal">
+						<img src='https://s17.postimg.org/f4f5pvubf/Japanese_Panflute.jpg' border='0' alt='Japanese_Panflute'/>
+						<p>Nai (Panflute)</p>
+					</a>
+				</td>
+				<td>
+					<a href="#gemshornModal">
+						<img src='https://s17.postimg.org/j7jyttpwr/Gemshorn.jpg' border='0' alt='Gemshorn'/>
+						<p>Gemshorn (Ocarina)</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section class="container">
+		<h3>Flutes From Polynesia</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#oheHanoIhuModal">
+						<img src='https://s17.postimg.org/u7565jb7v/Ohe_Hano_Ihu.jpg' border='0' alt='Ohe_Hano_Ihu'/>
+						<p>Ohe Hano Ihu</p>
+					</a>
+				</td>
+				<td>
+					<a href="#polynesianPanfluteModal">
+						<img src='https://s17.postimg.org/f4f5pvubf/Japanese_Panflute.jpg' border='0' alt='Japanese_Panflute'/>
+						<p>Panflute</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<section class="container">
+		<h3>Flutes From The Middle East</h3>
+		<table>
+			<tr>
+				<td>
+					<a href="#neyModal">
+						<img src='https://s17.postimg.org/ul6i52q5n/Ney.jpg' border='0' alt='Ney'/>
+						<p>Ney</p>
+					</a>
+				</td>
+				<td>
+					<a href="#blulModal">
+						<img src='https://s17.postimg.org/msfud47bv/Blul.png' border='0' alt='Blul'/>
+						<p>Blul</p>
+					</a>
+				</td>
+				<td>
+					<a href="#shviModal">
+						<img src='https://s17.postimg.org/dxf02ml4b/Shvi.jpg' border='0' alt='Shvi'/>
+						<p>Shvi</p>
+					</a>
+				</td>
+				<td>
+					<a href="#kavalModal">
+						<img src='https://s17.postimg.org/adt2cu5jv/Kaval.jpg' border='0' alt='Kaval'/>
+						<p>Kaval</p>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</section>
+	<div id="xunModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Xun (Ocarina)</h2>
+			<p>The Xun is a type of vessel flute from China. Similar to the ocarina in sound, it is an egg-shape with a flattened bottom. You blow across the hole in the top of the egg while fingering the holes in the sides. It has a mellow and haunting sound.</p>
+		</div>
+	</div>
+	<div id="diziModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Dizi</h2>
+			<p>The Dizi is a side-blown bamboo flute from China. It has a unique a unique buzzing quality to the sound due to an extra hole cut between the embouchure hole and the finger holes. This hole, called a mo-cong, has a thin membrane pasted over it. The membrane vibrates as the air flows through the tube creating its buzzing quality. The Dizi is typically diatonic, but chromatic dizis do exist.</p>
+		</div>
+	</div>
+	<div id="xiaoModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Xiao</h2>
+			<p>The Xiao is an end-blown flute from China. It has a soft and gentle sound. It's a diatonic instrument with some chromaticism possible by using half-holes and cross-fingerings.</p>
+		</div>
+	</div>
+	<div id="hulusiModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Hulusi</h2>
+			<p>The Hulusi is a free reed wind instrument (not technically a flute) from Southeastern China. It has one melody pipe and two drone pipes, which can be stopped if they are not wished to be used.</p>
+		</div>
+	</div>
+	<div id="paixiaoModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Pai-Xiao (Panflute)</h2>
+			<p>The Pai-Xiao is a Chinese curved panflute. It can be played chromatically by bending the pitches in the same manner that the Romanian curved panflute is played.</p>
+		</div>
+	</div>
+	<div id="bawuModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Bawu</h2>
+			<p>The Bawu is a side-blown free reed instrument. The reed is encased in a mouthpiece. The player covers the entire embouchure hole with their mouth and blows to engage the free reed inside.</p>
+		</div>
+	</div>
+	<div id="shakuhachiModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Shakuhachi</h2>
+			<p>The Shakuhachi is an end-blown flute from Japan. It's a five-hole instrument, but through the use of half-hole and quarter-hole fingerings, as well as <i>meri-kari</i> (the shading of notes by using different angles), it is able to be played chromatically.</p>
+		</div>
+	</div>
+	<div id="shinobueModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Shinobue</h2>
+			<p>The Shinobue, or Fue, is a side-blown bamboo flute from Japan. It's a diatonic instrument.<p>
+		</div>
+	</div>
+	<div id="tsuchibueModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Tsuchibue (Ocarina)</h2>
+			<p>The Tsuchibue is a Japanese vessel flute similar to an ocarina.</p>
+		</div>
+	</div>
+	<div id="khloyModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Khloy (Cambodia)</h2>
+			<p>The Khloy is a duct flute (a whistle-like mouthpiece) made of bamboo. It's a diatonic instrument and is typically played in informal settings</p>
+		</div>
+	</div>
+	<div id="khluiModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Khlui (Thailand)</h2>
+			<p>The Khlui is a duct flute (a whistle-like mouthpiece) made of bamboo. It's a diatonic instrument very similar to the Cambodian Khloy</p>
+		</div>
+	</div>
+	<div id="dansoModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Danso (Korea)</h2>
+			<p>The Danso is an end-blown flute similar to a shauhachi and/or quena</p>
+		</div>
+	</div>
+	<div id="daegeumModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Daegeum</h2>
+			<p>The Daegeum is a side-blown bamboo flute that has a membrane similar to the dizi. This membrane vibrates as the air passes through the tube and gives it a distinctive buzzing quality</p>
+		</div>
+	</div>
+	<div id="bansuriModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Bansuri</h2>
+			<p>The Bansuri is a side-blown flute made of bamboo. In commercial music bansri are often used to create music from other cultures' bamboo flutes, i.e. Irish flutes, Middle Eastern ney, Chinese dizi, etc. They are diatonic, but are available in every key and up to almost two octaves, so they are very versatile.</p>
+		</div>
+	</div>
+	<div id="tambinModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Tambin</h2>
+			<p>The Tambin is an overtone flute from West Africa. It has three finger goles and the player overblows to achieve harmonics.</p>
+		</div>
+	</div>
+	<div id="africanPanfluteModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Panflute</h2>
+			<p>Panflutes, both straight and curved, can be found throughout Africa.</p>
+		</div>
+	</div>
+	<div id="africanOcarinaModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Ocarina</h2>
+			<p>Ocarinas (vessel flutes) cna be found throughout Africa.</p>
+		</div>
+	</div>
+	<div id="africanWoodenFlutes" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Wooden Flutes</h2>
+			<p>Wooden flutes can be found throughout Africa. In commercial music, bansuri cna be used to emulate these wooden African flutes.</p>
+		</div>
+	</div>
+	<div id="quenaModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Quena</h2>
+			<p>The Quena is an end-blown flute from the Andean region of South America. It's a diatonic instrument, most often found in the keys of G or D. Some chromaticism is possible by half-hole fingerings.</p>
+		</div>
+	</div>
+	<div id="southAmericanOcarinaModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Ocarina</h2>
+			<p>Vessel Flutes (Ocarinas) can be found throughout both South America and Central America, from the historic clay, mud, and bone vessel flutes unearthed during archaeological digs, to the present day ocarina made of clay and/or wood. These vessel flutes can be either diatonic or chromatic depending on their design.</p>
+		</div>
+	</div>
+	<div id="zamponiaModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Zamponia</h2>
+			<p>South American straight panpipes are found in several different sizes, from the very small with only a few pipes to the very large (5' tall) toyo, or bass panpipes (See next entry). These panflutes are breathy and percussive in sound quality. They're diatonic, usually in the key of G, but some chromaticism is possible by "bending" the pitches.</p>
+		</div>
+	</div>
+	<div id="toyoModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>Toyo (Bass Panflute)</h2>
+			<p>The Toyo is the largest variety of South American straight panpipes. It's 5' tall and plays diatonically in the key of G. Some chromaticism is possible by "bending" the pitches.</p>
+		</div>
+	</div>
+	<div id="nativeAmericanFluteModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Native American Flute
+			</h2>
+			<p>The Native American Flute is the <i>Plains-style</i> duct flute,
+				distinctive for its block or fetish. This block/fetish sits on top of the flute and helps
+				direct the air into the second chamber of the flute. This block/fetish is usually in the
+				shape of an animal. Native American Flutes are diatonic and/or pentatonic,
+				depending on the number of finger holes. But, they can easily be played
+				chromatically through the use of cross-fingerings and/or half and quarter hole
+				fingerings.</p>
+		</div>
+	</div>
+	<div id="fifeModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Fife
+			</h2>
+			<p>
+				The Fife originated in England, but has been commonly used throught the
+				history of the United States' military. It has a high shrill sound because of its
+				narrow bore. Traditionally fifes were diatonic, but today makers are making them
+				keyed and/or 10-holes to be played chromatically.
+			</p>
+		</div>
+	</div>
+	<div id="nativeAmericanOcarinaModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Native American Ocarina
+			</h2>
+			<p>
+				Vessel Flutes (Ocarinas) have been found throughout
+				the United States. They have been found made out of clay, bone, antlers, wood, seed
+				pods, and gourds. They can be diatonic, pentatonic, and/or chromatic depending on
+				their design.
+			</p>
+		</div>
+	</div>
+	<div id="irishFluteModal" class="modalDialog">
+			<div>
+				<a href="#close" title="Close" class="close">X</a>
+				<h2>
+					Irish Flute
+				</h2>
+				<p>
+					The "Irish Flute" is actually just the pre-Boehm wooden classical flute
+					of the early 19 th Century. It plays best in the keys of D and G, but can also be played
+					chromatically.
+				</p>
+			</div>
+		</div>
+	<div id="europeanFifeModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Fife
+			</h2>
+			<p>
+				The Fife originated in England. It is a high shrill sound because of its narrow
+				bore. Traditionally fifes were diatonic, but today makers are making them keyed
+				and/or 10-holes to be played chromatically.
+			</p>
+		</div>
+	</div>
+	<div id="pennywhistleModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Pennywhistle
+			</h2>
+			<p>
+				Celtic whistles, also known as pennywhistles or tin whistles are
+				duct/fipple flutes which are diatonic, but can easily stray 1-2 accidentals from their
+				key with the use of half-hole fingerings and cross fingerings.
+			</p>
+		</div>
+	</div>
+	<div id="naiModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Nai (Panflute)
+			</h2>
+			<p>
+				The Nai is the Romanian curved panflute. It is a chromatic
+				instrument through the use of "bending" pitches.
+			</p>
+		</div>
+	</div>
+	<div id="gemshornModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Gemshorn (Ocarina)
+			</h2>
+			<p>
+				The Gemshorn is a type of vessel flute (ocarina) specifically
+				made out of an animal's horn...goat, bull, or similar. These instruments can be
+				diatonic, pentatonic, or chromatic depending on their design.
+			</p>
+		</div>
+	</div>
+	<div id="oheHanoIhuModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Ohe Hano Ihu
+			</h2>
+			<p>
+				The Oha Hano Ihu or Hawaiian nose flute is played with the air
+				from your nose, rather than your mouth. It is a three-holed instrument, so is
+				therefore limited in its range. It is used in the Hawaiian Hula dance.
+			</p>
+		</div>
+	</div>
+	<div id="polynesianPanfluteModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Panflute
+			</h2>
+			<p>
+				Panflutes are found predominantly in the southwest Pacific, particularly
+				in New Guinea, the Solomon Islands, and Western Polynesia.
+			</p>
+		</div>
+	</div>
+	<div id="neyModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Ney
+			</h2>
+			<p>
+				The Ney is an end-blown flute found throughout the Middle East (Persia).
+			</p>
+		</div>
+	</div>
+	<div id="blulModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Blul
+			</h2>
+			<p>
+				The Blul is an Armenian duct/fipple flute.
+			</p>
+		</div>
+	</div>
+	<div id="shviModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Shvi
+			</h2>
+			<p>
+				The Shvi is an Armenian duct/fipple flute.
+			</p>
+		</div>
+	</div>
+	<div id="kavalModal" class="modalDialog">
+		<div>
+			<a href="#close" title="Close" class="close">X</a>
+			<h2>
+				Kaval
+			</h2>
+			<p>
+				The Kaval is an Armenian end-blown flute.
+			</p>
+		</div>
+	</div>
+	<footer>
+		<a href="http://tereasapayne.com/web/home.aspx">Click here to go back to TereasaPayne.com</a>
+	</footer>
+</body>
+</html>
